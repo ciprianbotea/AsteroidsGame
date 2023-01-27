@@ -1,0 +1,33 @@
+html {
+  width: 100%;
+  height:100%;
+  overflow: hidden;
+
+}
+
+body {
+  width: 100%;
+  height:100%;
+  margin: 0;
+}
+
+#playerName {
+    width: 20%;
+    position: absolute; bottom:15px; right:40%;
+    padding: 7px 14px;
+    box-sizing: border-box;
+    border:none;
+    border-radius: 6px;
+  }
+
+  #submitName {
+    background-color: rgb(250, 125, 125);
+    color: rgb(255, 255, 255);
+    padding: 6px 12px;
+    text-align: center;
+    display: inline-block;
+    border:none;
+    font-size: 15px;
+    position: absolute; bottom:15px; right:36%;;
+    border-radius: 6px
+  }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Asteroids game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body> 
+    
+    <input type="text" id="playerName" placeholder="Type your name...">
+    <button type="button" id="submitName" onclick="getPlayerName()">OK</button>
+    
+    <canvas id="gameCanvas" style="width: 100%; height: 100%;">The canvas element is not supported</canvas>
+    
+    <script src="script.js"></script>
+
+    <script>
+        resizeCanvas();
+        newGame();
+        setInterval(updateCanvas, 1000 / FPS);    
+
+        /*SET UP EVENT HANDLERS*/
+        document.addEventListener("keydown",
+        function keyDown (event) {
+            if (ship.destroyed) {
+                return;
+            }
+            switch(event.key) {
+                case "x":
+                    launchRocket();
+                    break;
+                case "z":
+                    ship.rotation = TURN_SPEED / 180 * Math.PI / FPS;
+                    break;
+                case "c":
+                    ship.rotation = -TURN_SPEED / 180 * Math.PI / FPS;
+                    break;
+                case "ArrowUp":
+                    ship.movingUp = true;
+                    break;
+                case "ArrowDown":
+                    ship.movingDown = true;
+                    break;
+                case "ArrowLeft":
+                    ship.movingLeft = true;
+                    break;
+                case "ArrowRight":
+                    ship.movingRight = true;
+                    break;
+            }
+        });
+
+        document.addEventListener("keyup",
+        function keyUp (event) {  
+            if (ship.destroyed) {
+                return;
+            } 
+            switch(event.key) {
+                case "x":
+                    ship.canShoot = true;
+                    break;
+                case "z":
+                    ship.rotation = 0;
+                    break;
+                case "c":
+                    ship.rotation = 0;
+                    break;
+                case "ArrowUp":
+                    ship.movingUp = false;
+                    break;
+                case "ArrowDown":
+                    ship.movingDown = false;
+                    break;
+                case "ArrowLeft":
+                    ship.movingLeft = false;
+                    break;
+                case "ArrowRight":
+                    ship.movingRight = false;
+                    break;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
